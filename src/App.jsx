@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import HomeHead from "./components/HomeHead";
 // 导入需要的组件
 import A from "./views/A";
@@ -18,6 +18,7 @@ function App() {
             不再需要exact，默认每一项匹配都是精准匹配
         */}
         <Routes>
+          <Route path="/" element={<Navigate to="/" />} />
           <Route path="/a" element={<A />} />
           <Route path="/b" element={<B />} />
           <Route path="/c" element={<C />} />
