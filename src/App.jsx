@@ -35,7 +35,8 @@ function App() {
             <Route path="/a/a3" element={<A3 />} />
           </Route>
           <Route path="/b" element={<B />} />
-          <Route path="/c" element={<C />} />
+          {/* 路径传参 */}
+          <Route path="/c/:id?/:name?" element={<C />} />
           {/* 如果所有路径都不匹配，就跳到指定的路由地址。可以是404页面，
           也可以是重定向到指定地址 */}
           <Route path="*" element={<Navigate to="/a" />} />
