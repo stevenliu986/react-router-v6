@@ -5,6 +5,9 @@ import HomeHead from "./components/HomeHead";
 import A from "./views/A";
 import B from "./views/B";
 import C from "./views/C";
+import A1 from "./views/a/A1";
+import A2 from "./views/a/A2";
+import A3 from "./views/a/A3";
 function App() {
   return (
     <HashRouter>
@@ -23,10 +26,18 @@ function App() {
         */}
         <Routes>
           <Route path="/" element={<Navigate to="/a" />} />
-          <Route path="/a" element={<A />} />
+          <Route path="/a" element={<A />}>
+            {/* V6版本中，要求所有的路由(二级或多级路由)，不再分散到各个组件中编写，
+            而是统一都写在一起进行处理 */}
+            <Route path="/a" element={<Navigate to="/a/a1" />} />
+            <Route path="/a/a1" element={<A1 />} />
+            <Route path="/a/a2" element={<A2 />} />
+            <Route path="/a/a3" element={<A3 />} />
+          </Route>
           <Route path="/b" element={<B />} />
           <Route path="/c" element={<C />} />
-          {/* 如果所有路径都不匹配，就跳到指定的路由地址 */}
+          {/* 如果所有路径都不匹配，就跳到指定的路由地址。可以是404页面，
+          也可以是重定向到指定地址 */}
           <Route path="*" element={<Navigate to="/a" />} />
           {/* <Route
             path="*"
