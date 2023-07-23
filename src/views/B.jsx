@@ -19,14 +19,14 @@ const B = () => {
       replace: true,
       state: {
         id: 100,
-        name: "hello world",
+        name: "hello-world",
       },
     });
   };
   return (
     <div>
       B组件内容！
-      <button onClick={handle}>按键</button>
+      <button onClick={handle}>跳转到C组件页面</button>
     </div>
   );
 };
